@@ -12,8 +12,8 @@ import com.example.demo.Entity.CarAssign;
 public interface CarAssignRepo extends JpaRepository<CarAssign, Integer> {
 
 	@Query("Select ca from CarAssign ca where ca.driver_email= ?1 and ca.isActive=1")
-	public CarAssign findByEmailActive(String email);
+	public CarAssign findByEmailActive(String email);  //Get the current assigned car id
 	
 	@Query("Select ca from CarAssign ca where ca.driver_email = ?1")
-	public List<CarAssign> findDriverCarEmail(String email);
+	public List<CarAssign> findDriverCarEmail(String email);  //Get all the cars used by the the entered driver email
 }

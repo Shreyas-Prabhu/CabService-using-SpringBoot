@@ -14,13 +14,13 @@ import org.hibernate.annotations.CreationTimestamp;
 public class Booking {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int txn_id;
+	private int txn_id; //transaction id for each booking
 	private String cust_email;
 	private int car_id;
 	@Column(name = "book_date", nullable = false, updatable = false)
 	@CreationTimestamp
 	private Date book_date;
-	private int isActive;
+	private int isActive;  //whether the booking is present or its canceled
 	public int getTxn_id() {
 		return txn_id;
 	}

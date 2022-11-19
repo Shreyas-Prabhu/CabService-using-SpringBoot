@@ -12,30 +12,32 @@ import com.example.demo.Entity.Car;
 import com.example.demo.Repository.CarRepo;
 
 @Service
-public class CarService {
+public class CarService {   //All actions can only be taken by admin
 	
 	@Autowired
 	CarRepo repo;
 	
-	public List<Car> getAllCars()
+	public List<Car> getAllCars()    //Get all the cars present in the system
 	{
 		return repo.findAll();
 	}
 	
-	public List<Car> getAllAvailCar()
+	public List<Car> getAllAvailCar()   //Get all cars available which are not assigned with any driver
 	{
 		return repo.getAllAvailableCar();
 	}
 	
-	public Optional<Car> getCar(int id)
+	public Optional<Car> getCar(int id)  //Get a car with car id
 	{
 		return repo.findById(id);
 	}
 	
-	public String saveCar(Car car)
+	public String saveCar(Car car)  //Save a car with unique id
 	{
 		if(!repo.existsById(car.getCar_id()))
-		{
+		{	
+			car.setCar_avail(1);
+			car.setCar_status(1);
 			repo.save(car);
 			return "Saved";
 		}
@@ -45,7 +47,7 @@ public class CarService {
 		}
 	}
 	
-	public String updateCar(Car car)
+	public String updateCar(Car car)  //Update the car present in the system
 	{
 		if(repo.existsById(car.getCar_id()))
 		{
@@ -58,14 +60,14 @@ public class CarService {
 		}
 	}
 	
-	public String deleteCar(int id)
+	public String deleteCar(int id)  //Delete the car
 	{
 		if(repo.existsById(id))
 		{
 			Car c = repo.findById(id).orElse(null);
 			if(c.getCar_status()==0)
 			{
-				return "Can not delete this car as it is already booked!!";
+				return "Can not delete this car as it is already assigned!!";
 			}
 			
 			else 

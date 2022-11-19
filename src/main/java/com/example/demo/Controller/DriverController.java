@@ -22,7 +22,7 @@ public class DriverController {
 	DriverService dService;
 	
 
-	@PostMapping("/admin/addDriver")
+	@PostMapping("/admin/addDriver") //The driver can be added by admin for only users who have registered to system.
 	public String addDriver(@RequestBody Customer cus)
 	{
 			//System.out.println(cus.toString());
@@ -30,7 +30,7 @@ public class DriverController {
 
 	}
 	
-	@PostMapping("/admin/deleteDriver")
+	@PostMapping("/admin/deleteDriver")  //Driver is removed and saved in the system as normal user, he/she is not driver anymore
 	public String deleteDriver(@RequestBody Customer cus)
 	{
 	
@@ -39,9 +39,5 @@ public class DriverController {
 		
 	}
 	
-//	@GetMapping("/admin/getAllDrivers")
-//	public List<Object> getAllDrivers()
-//	{
-//		return dService.getAllDrivers();
-//	}
+
 }

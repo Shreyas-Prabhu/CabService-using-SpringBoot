@@ -18,7 +18,7 @@ public class DriverService {
 	@Autowired
 	CustomerRepo repo;
 		
-	public String addDriver(String email)
+	public String addDriver(String email)    //The driver can be added by admin for only users who have registered to system.
 	{
 		Customer cus = repo.findByEmail(email);
 
@@ -33,14 +33,21 @@ public class DriverService {
 		}
 		else
 		{
+			if(cus.getRole().equalsIgnoreCase("admin"))
+			{
+				return "Do not assign driver to an admin, it is adviceable to register to the system using your personal email to be assigned"
+						+ " as driver";
+			}
+			else {
 			cus.setRole("driver");
 			cus.setIsDriverAvailable(1);
 			repo.save(cus);
 			return "Driver added";
+			}
 		}
 	}
 	
-	public String deleteDriver(String email)
+	public String deleteDriver(String email) //Driver is removed and saved in the system as normal user, he/she is not driver anymore
 	{
 		Customer cus = repo.findByEmail(email);
 
@@ -48,7 +55,7 @@ public class DriverService {
 		{
 			return "The driver with entered email is not present";
 		}
-		else if(cus.getRole().equalsIgnoreCase("driver"))
+		else if(cus.getRole().equalsIgnoreCase("driver") && cus.getIsDriverAvailable()==1)
 		{
 			cus.setRole("user");
 			cus.setIsDriverAvailable(0);
@@ -57,12 +64,9 @@ public class DriverService {
 		}
 		else
 		{
-			return "The driver with entered email is not present";
+			return "The driver is currently assigned to a car, unassign the car and then try to delete!!";
 		}
 	}
 	
-//	public List<Object> getAllDrivers()
-//	{
-//		return repo.getDrivers();
-//	}
+
 }

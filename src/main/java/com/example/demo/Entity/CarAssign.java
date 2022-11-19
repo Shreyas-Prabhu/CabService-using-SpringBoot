@@ -7,14 +7,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class CarAssign {
+public class CarAssign {  //All the assigned car to any driver stored here
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int txn_id;
 	private String driver_email;
 	private int car_id;
-	private int isActive;
+	private String car_name;
+	private int isActive;   // is this the current car of the driver
 	
 	
 	
@@ -41,6 +42,12 @@ public class CarAssign {
 	}
 	public void setCar_id(int car_id) {
 		this.car_id = car_id;
+	}
+	public String getCar_name() {
+		return car_name;
+	}
+	public void setCar_name(String car_name) {
+		this.car_name = car_name;
 	}
 	
 	

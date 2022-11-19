@@ -13,7 +13,6 @@ public class Car {
 	private int car_capacity;
 	private float car_rent;
 	private int car_status;//For drivers to assign
-	@Column(columnDefinition = "integer default 1")
 	private int car_avail; //For users to book
 	public int getCar_avail() {
 		return car_avail;

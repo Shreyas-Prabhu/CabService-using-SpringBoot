@@ -11,7 +11,7 @@ import com.example.demo.Entity.Car;
 @Repository
 public interface CarRepo extends JpaRepository<Car, Integer> {
 
-	@Query("SELECT c FROM Car c WHERE c.car_status = 1")
+	@Query("SELECT c FROM Car c WHERE c.car_status = 1")  //Get the available car which are not assigned to any driver
 	public List<Car> getAllAvailableCar();
 	
 	@Query("SELECT c FROM Car c WHERE c.car_status = 0 and c.car_avail = 1 and c.car_capacity= ?1")

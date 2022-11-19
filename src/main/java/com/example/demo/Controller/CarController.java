@@ -3,6 +3,7 @@ package com.example.demo.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,7 +23,7 @@ public class CarController {
 		
 	
 
-	@GetMapping("/admin/getAvailableCars")
+	@GetMapping("/admin/getAvailableCars")  //Get all cars available which are not assigned with any driver
 	public List<Car> fetchAvailable()
 	{
 		return cService.getAllAvailCar();
@@ -30,13 +31,13 @@ public class CarController {
 	}
 	
 	
-	@GetMapping("/admin/getAllCars")
+	@GetMapping("/admin/getAllCars") //Get all the cars present in the system
 	public List<Car> fetchAll()
 	{
 		return cService.getAllCars();
 	}
 	
-	@PostMapping("/admin/saveCar")
+	@PostMapping("/admin/saveCar")  //Save a car with unique id
 	public String saveData(@RequestBody Car car)
 	{
 		return cService.saveCar(car);
@@ -44,7 +45,7 @@ public class CarController {
 	}
 	
 	
-	@DeleteMapping("/admin/deleteCar/{car_id}")
+	@DeleteMapping("/admin/deleteCar/{car_id}") //Delete the car, give car_id in the url
 	public String deleteCar(@PathVariable("car_id") int id)
 	{
 

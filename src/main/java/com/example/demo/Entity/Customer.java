@@ -14,12 +14,8 @@ public class Customer {
 	private String lname;
 	private String password;
 	private long phone;
-	
 	private String role;
-	
-	@Column(columnDefinition = "integer default 0")
 	private int isDriverAvailable;
-	@Column(columnDefinition = "integer default 1")
 	private int isCustomerFree;
 	
 	public int getIsCustomerFree() {
