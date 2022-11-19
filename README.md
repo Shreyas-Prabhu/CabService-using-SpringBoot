@@ -73,7 +73,8 @@ Step 4--> You can go to controller package and find the endpoints for every task
               
           ---> get all car used by driver(only driver)
               ---------------
-              1) Login again with driver credentials(above it is abc@gmail.com and password set by you while registering) and add the generated token in                                Authorization's Bearer Token type.
+              1) Login again with driver credentials(above it is abc@gmail.com and password set by you while registering) and add the generated token in
+              Authorization's Bearer Token type.
                  Now, select  POST in postman, add this URL http://localhost:8083/driver/getListCar and hit send to give all the car used by logged in driver.
                  
                  
@@ -83,7 +84,8 @@ Step 4--> You can go to controller package and find the endpoints for every task
               1)select GET in postman, add this URL http://localhost:8083/user/getAvailCar, go to params and add 'seat' as key and value as any seat capacity,
               this will list all the available cars with the mentioned seats which has driver assigned to it.(car with drivers only will be listed)
               
-              2)select POST in postman, add this URL http://localhost:8083/user/bookCab and enter the car_id that needs to book in body, basically car id can be found                from the above step getting available car with required seat, so enter the same car_id. This will generate the transaction id of booking.
+              2)select POST in postman, add this URL http://localhost:8083/user/bookCab and enter the car_id that needs to book in body, basically car id can be found
+              from the above step getting available car with required seat, so enter the same car_id. This will generate the transaction id of booking.
                 {
                         "car_id":102
                  }
