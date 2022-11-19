@@ -31,7 +31,7 @@ Step 4--> You can go to controller package and find the endpoints for every task
           -----------
           1)select GET in postman, add this URL http://localhost:8083/admin/getAllCars --->All Cars in the system with status as explained in glossary below.
           2)select GET in postman, add this URL http://localhost:8083/admin/getAvailableCars  -->All cars that are not assigned with driver
-          3)select POST in postman, add this URL http://localhost:8083/admin/saveCar and then paste the below car details, make sure the car_id is unique(I have not               implemented automatic key generation here)
+          3)select POST in postman, add this URL http://localhost:8083/admin/saveCar and then paste the below car details, make sure the car_id is unique
                   {
                       "car_id" : 105,
                       "car_name" : "Mercedes C class",
