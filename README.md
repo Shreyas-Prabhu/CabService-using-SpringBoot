@@ -3,6 +3,7 @@
 Steps followed for this project.
 -------------------------------------
 I have pre inserted car details in the database. 
+
 Step 1-->Please register in the project by going to this URL in postman http://localhost:8083/register for admin and add this json in the body and select POST method
           {
               "email":"admin@gmail.com",
