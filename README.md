@@ -16,8 +16,7 @@ Step 1-->Please register in the project by going to this URL in postman http://l
            update customer set role = "admin" where fname = "admin";
            Your admin is registered to the system and now you are good to go...
            
-Step 2-->You can register as many users you want. Now to login, Select POST method, and paste this URL http://localhost:8083/authenticate and enter email and password in 
-         the body, in the below format
+Step 2-->You can register as many users you want. Now to login, Select POST method, and paste this URL http://localhost:8083/authenticate and enter email and password in the body, in the below format
          {
             "email":"admin@gmail.com",
             "pass":"1234"
@@ -107,20 +106,24 @@ Glossary--> You might notice few variables in the code, below is the explainatio
           In Customer.java
           -----------------
           isCustomerFree --> Initially, it is 1 which means customer has not booked any car. 0 means customer has booked car.
-          isDriverAvailable --> To become a driver, user must register to the system. Admin can then make a user as driver. So once the user has become driver, 1 means                                 driver is available and not assigned with any car, 0 means driver is assigned with car. By default this field is 0 for other roles.
+          isDriverAvailable --> To become a driver, user must register to the system. Admin can then make a user as driver. So once the user has become driver, 1 means
+          driver is available and not assigned with any car, 0 means driver is assigned with car. By default this field is 0 for other roles.
           
            In Car.java
           -----------------
-          car_status--> By default it is 1 which means, car is free and not assigned with any driver. 0 means car is been assigned with the driver and it cannot be                             assigned to anyone else.
+          car_status--> By default it is 1 which means, car is free and not assigned with any driver. 0 means car is been assigned with the driver and it cannot be 
+          assigned to anyone else.
           car_avail--> By default it is 1, which means car is available for booking. 0 means it is already booked.
           
           
             In CarAssign.java
           -----------------
-          isActive--> when the car is assigned to any driver the status is saved as 1 which means this car is currently used by the driver. Once the car gets                                 unassigned this status change to 0
+          isActive--> when the car is assigned to any driver the status is saved as 1 which means this car is currently used by the driver. Once the car gets  
+          unassigned this status change to 0
           
             In Booking.java
           -----------------
-          isActive--> when the booking is done by the customer, this status is saved as 1 once the user cancels the booking, the status changes to zero. (Also if the                          journey is finished same can be implemented)
+          isActive--> when the booking is done by the customer, this status is saved as 1 once the user cancels the booking, the status changes to zero. (Also if the
+          journey is finished same can be implemented)
            
   
