@@ -103,6 +103,7 @@ Step 4--> You can go to controller package and find the endpoints for every task
 Tables in Database : there are 4 database tables customer,booking, casr_assign, car
 
 Glossary--> You might notice few variables in the code, below is the explaination for few of them:
+
           In Customer.java
           -----------------
           isCustomerFree --> Initially, it is 1 which means customer has not booked any car. 0 means customer has booked car.
