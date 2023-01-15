@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FlintzyCabServiceApplication {
+public class CabServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FlintzyCabServiceApplication.class, args);
+		SpringApplication.run(CabServiceApplication.class, args);
 	}
 
 }
